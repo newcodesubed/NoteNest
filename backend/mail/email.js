@@ -1,4 +1,4 @@
-import { PASSWORD_RESET_REQUEST_TEMPLATE, VERIFICATION_EMAIL_TEMPLATE, WELCOME_EMAIL } from "./emailTemplates.js";
+import { PASSWORD_RESET_REQUEST_TEMPLATE, PASSWORD_RESET_SUCCESS_TEMPLATE, VERIFICATION_EMAIL_TEMPLATE, WELCOME_EMAIL } from "./emailTemplates.js";
 import { sender, transporter } from "./nodemailer.config.js";
 
 
@@ -51,5 +51,23 @@ export const sendPasswordResetEmail = async (email, resetURL) => {
     } catch (error) {
         console.error("Error sending password reset email:", error);
         throw new Error(`Failed to send password reset email: ${error}`);
+    }
+}
+
+
+export const sendResetSuccessEmail = async (email) =>{
+    try {
+        const response = await transporter.sendMail({
+            from: sender,
+            to: email,
+            subject: "Password Reset Successful",
+            html: PASSWORD_RESET_SUCCESS_TEMPLATE,
+            category: "Password Reset Success",
+        });
+        console.log("Reset success email sent successfully:", response);
+        
+    } catch (error) {
+        console.error("Error sending reset success email:", error);
+        throw new Error(`Failed to send reset success email: ${error}`);
     }
 }
