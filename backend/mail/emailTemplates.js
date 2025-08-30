@@ -93,3 +93,37 @@ export const PASSWORD_RESET_REQUEST_TEMPLATE = `
 </body>
 </html>
 `;
+export const WELCOME_EMAIL =`
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to NoteNest</title>
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
+  <div style="background: linear-gradient(to right, #4CAF50, #45a049); padding: 20px; text-align: center;">
+    <h1 style="color: white; margin: 0;">Welcome to NoteNest 🎉</h1>
+  </div>
+  <div style="background-color: #f9f9f9; padding: 20px; border-radius: 0 0 5px 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+    <p>Hello <strong>{username}</strong>,</p>
+    <p>We’re excited to have you on board! 🎉</p>
+    <p>NoteNest helps you organize, store, and manage your notes seamlessly. You can now:</p>
+    <ul>
+      <li>📌 Create and manage your notes</li>
+      <li>🔍 Search across all your saved content</li>
+      <li>💾 Sync securely across devices</li>
+    </ul>
+    <p style="margin-top: 20px;">Get started by logging in and creating your first note today:</p>
+    <div style="text-align: center; margin: 30px 0;">
+      <a href="{appUrl}" style="background: #4CAF50; color: white; padding: 12px 20px; border-radius: 5px; text-decoration: none; font-weight: bold;">Go to Dashboard</a>
+    </div>
+    <p>If you have any questions, feel free to reach out to our support team.</p>
+    <p>Best regards,<br>The NoteNest Team</p>
+  </div>
+  <div style="text-align: center; margin-top: 20px; color: #888; font-size: 0.8em;">
+    <p>This is an automated message, please do not reply to this email.</p>
+  </div>
+</body>
+</html>
+`;
