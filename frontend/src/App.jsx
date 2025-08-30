@@ -1,5 +1,11 @@
 import React from 'react'
 import FloatingShap from './components/FloatingShap'
+import DashboardPage from './pages/DashboardPage'
+import LoginPage from './pages/LoginPage'
+import SignUpPage from './pages/SignUpPage'
+import EmailVerificationPage from './pages/EmailVerificationPage'
+import ForgotPasswordPage from './pages/ForgotPasswordPage'
+import ResetPasswordPage from './pages/ResetPasswordPage'
 
 export default function App() {
   return (
@@ -27,7 +33,40 @@ export default function App() {
         left="-10%"
         delay={2}
       />
+      <Routes>
+        <Route path="/" element={
+          
+            <DashboardPage/>
+          
+        } />
+        <Route path="/login" element={
+          
+            <LoginPage />
+          
+        } />
+        <Route path="/signup" element={
+          
+            <SignUpPage/>
+         
+        } />
+        <Route path="/verify-email" element={<EmailVerificationPage/>} />
+        <Route path="/forgot-password" element={
+          
+            <ForgotPasswordPage/>
+          
+        } />
+        <Route
+					path='/reset-password/:token'
+					element={
+						
+							<ResetPasswordPage />
+						
+					}
+				/>
+        
 
+        
+      </Routes>
     </div>
   )
 }
