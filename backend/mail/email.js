@@ -28,7 +28,7 @@ export const sendWelcomeEmail = async (email, name) => {
         from: sender,
         to: email,
         subject: "Welcome Email",
-        html: WELCOME_EMAIL,
+        html: WELCOME_EMAIL.replace("{username}",name),
     });
   console.log("Welcome Email successfully",response)
     } catch (error) {
