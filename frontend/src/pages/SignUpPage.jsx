@@ -3,6 +3,7 @@ import Input from '../components/Input';
 import {User, Mail, Lock, Loader} from 'lucide-react';
 import { useState } from 'react';
 import {Link, useNavigate} from "react-router-dom"
+import PasswordStrengthMeter from '../components/PasswordStrengthMeter';
 
 
 export default function SignUpPage() {

@@ -4,7 +4,8 @@ import FloatingShap from './components/FloatingShap'
 import DashboardPage from './pages/DashboardPage'
 import LoginPage from './pages/LoginPage'
 import SignUpPage from './pages/SignUpPage'
-import EmailVerificationPage from './pages/EmailVerificationPage'
+import { EmailVerificationPage } from './pages/EmailVerificationPage'
+
 import ForgotPasswordPage from './pages/ForgotPasswordPage'
 import ResetPasswordPage from './pages/ResetPasswordPage'
 
