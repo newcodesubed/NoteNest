@@ -1,4 +1,5 @@
-import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+
 import FloatingShap from './components/FloatingShap'
 import DashboardPage from './pages/DashboardPage'
 import LoginPage from './pages/LoginPage'
