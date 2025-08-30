@@ -53,8 +53,8 @@ export default function SignUpPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
             />
-            {/* {error && <p className='text-red-500 font-semibold mt-2'>{error}</p>}
-            <PasswordStrengthMeter password={password}/> */}
+            {/* {error && <p className='text-red-500 font-semibold mt-2'>{error}</p>} */}
+            <PasswordStrengthMeter password={password}/>
 
             <motion.button
                 type="submit"
