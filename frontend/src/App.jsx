@@ -5,6 +5,7 @@ import DashboardPage from './pages/DashboardPage'
 import LoginPage from './pages/LoginPage'
 import SignUpPage from './pages/SignUpPage'
 import { EmailVerificationPage } from './pages/EmailVerificationPage'
+import {Toaster} from 'react-hot-toast'
 
 import ForgotPasswordPage from './pages/ForgotPasswordPage'
 import ResetPasswordPage from './pages/ResetPasswordPage'
@@ -69,6 +70,7 @@ export default function App() {
 
         
       </Routes>
+      <Toaster />
     </div>
   )
 }
