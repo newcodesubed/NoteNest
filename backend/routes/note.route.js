@@ -1,6 +1,6 @@
 import express from "express";
 
-import { createNote, getNotes, updateNote, deleteNote, shareNote } from "../controllers/note.controller.js";
+import { createNote, deleteNote, getNotes, shareNote, updateNote } from "../controllers/note.controller.js";
 import { verifyToken } from "../middlewares/verifyToken.js";
 const router = express.Router();
 
