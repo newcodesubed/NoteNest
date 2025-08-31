@@ -61,7 +61,7 @@ export const verifyEmail = async (req, res) => {
         user.verificationExpiresAt = undefined;
         await user.save();
 
-        await sendWelcomeEmail(user.email, user.name);
+        await sendWelcomeEmail(user.email, user.name,`${process.env.CLIENT_URL}/login`);
 
         res.status(200).json({
             success:true,

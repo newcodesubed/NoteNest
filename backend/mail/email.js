@@ -20,7 +20,7 @@ try {
 
 }
 
-export const sendWelcomeEmail = async (email, name) => {
+export const sendWelcomeEmail = async (email, name, appUrl) => { 
     
     
     try {
@@ -28,7 +28,8 @@ export const sendWelcomeEmail = async (email, name) => {
         from: sender,
         to: email,
         subject: "Welcome Email",
-        html: WELCOME_EMAIL.replace("{username}",name),
+        html: WELCOME_EMAIL.replace("{username}", name)
+        .replace("{appUrl}", appUrl),
     });
   console.log("Welcome Email successfully",response)
     } catch (error) {

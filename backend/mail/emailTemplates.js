@@ -116,7 +116,7 @@ export const WELCOME_EMAIL =`
     </ul>
     <p style="margin-top: 20px;">Get started by logging in and creating your first note today:</p>
     <div style="text-align: center; margin: 30px 0;">
-      <a href="{appUrl}" style="background: #4CAF50; color: white; padding: 12px 20px; border-radius: 5px; text-decoration: none; font-weight: bold;">Go to Dashboard</a>
+      <a href="{appUrl}" style="background: #4CAF50; color: white; padding: 12px 20px; border-radius: 5px; text-decoration: none; font-weight: bold;">Go to Login</a>
     </div>
     <p>If you have any questions, feel free to reach out to our support team.</p>
     <p>Best regards,<br>The NoteNest Team</p>
