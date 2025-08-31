@@ -6,10 +6,11 @@ axios.defaults.withCredentials = true;
 
 export const useNoteStore = create((set, get) => ({
   notes: [],
-  sharedNotes: [], 
+  sharedNotes: [],
   isLoading: false,
   error: null,
 
+  // Fetch all notes
   fetchNotes: async () => {
     set({ isLoading: true, error: null });
     try {
@@ -19,7 +20,7 @@ export const useNoteStore = create((set, get) => ({
       ]);
 
       set({
-        myNotes: myRes.data.notes,
+        notes: myRes.data.notes,
         sharedNotes: sharedRes.data.notes,
         isLoading: false,
       });
@@ -31,6 +32,7 @@ export const useNoteStore = create((set, get) => ({
     }
   },
 
+  // Create note
   createNote: async (title, content) => {
     set({ isLoading: true });
     try {
@@ -41,6 +43,7 @@ export const useNoteStore = create((set, get) => ({
     }
   },
 
+  // Update note
   updateNote: async (id, title, content) => {
     set({ isLoading: true });
     try {
@@ -54,6 +57,7 @@ export const useNoteStore = create((set, get) => ({
     }
   },
 
+  // Delete note
   deleteNote: async (id) => {
     set({ isLoading: true });
     try {
@@ -64,16 +68,30 @@ export const useNoteStore = create((set, get) => ({
     }
   },
 
+  // Share note with optimistic update
   shareNote: async (id, email) => {
-    set({ isLoading: true });
+    const { notes, sharedNotes } = get();
+    const noteToShare = notes.find((n) => n._id === id);
+    if (!noteToShare) return;
+
+    // Optimistic update: add a copy to sharedNotes
+    set({
+      sharedNotes: [...sharedNotes, { ...noteToShare, sharedWith: email }],
+    });
+
     try {
       const res = await axios.post(`${API_URL}/${id}/share`, { email });
+
+      // Update the note in my notes array if backend returns updated note
       set({
         notes: get().notes.map((n) => (n._id === id ? res.data.note : n)),
-        isLoading: false,
       });
     } catch (err) {
-      set({ error: err.response?.data?.message || "Error sharing note", isLoading: false });
+      // Revert optimistic update if error
+      set({
+        sharedNotes: get().sharedNotes.filter((n) => n._id !== id),
+        error: err.response?.data?.message || "Error sharing note",
+      });
     }
   },
 }));
