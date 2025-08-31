@@ -95,3 +95,12 @@ export const shareNote = async (req, res) => {
     res.status(500).json({ success: false, message: "Error sharing note" });
   }
 };
+export const getMyNotes = async (req, res) => {
+  const notes = await Note.find({ createdBy: req.userId });
+  res.json({ notes });
+};
+
+export const getSharedNotes = async (req, res) => {
+  const notes = await Note.find({ sharedWithReaders: req.userId }).populate("createdBy", "name email");
+  res.json({ notes });
+};

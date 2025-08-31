@@ -6,13 +6,14 @@ import {Toaster} from 'react-hot-toast'
 import LoginPage from './pages/LoginPage'
 import SignUpPage from './pages/SignUpPage'
 import { EmailVerificationPage } from './pages/EmailVerificationPage'
-import { DashboardPage } from './pages/DashboardPage'
+// import { DashboardPage } from './pages/DashboardPage'
 import { ForgotPasswordPage } from './pages/ForgotPasswordPage'
 import ResetPasswordPage  from './pages/ResetPasswordPage'
 
 import FloatingShap from './components/FloatingShap'
 import LoadingSpinner from './components/LoadingSpiner'
 import { useAuthStore } from './store/authStore'
+import DashboardPage from './pages/DashboardPage'
 
 //protecting routes that require authentication
 const ProtectedRoute = ({children})=>{
